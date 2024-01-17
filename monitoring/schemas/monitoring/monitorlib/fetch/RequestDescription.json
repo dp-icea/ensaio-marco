@@ -1,0 +1,54 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/monitorlib/fetch/RequestDescription.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.monitorlib.fetch.RequestDescription, as defined in monitoring/monitorlib/fetch/__init__.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "body": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "headers": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "initiated_at": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "json": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "method": {
+      "type": "string"
+    },
+    "received_at": {
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "method",
+    "url"
+  ],
+  "type": "object"
+}

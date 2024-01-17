@@ -1,0 +1,46 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/reports/report/TestCaseReport.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.uss_qualifier.reports.report.TestCaseReport, as defined in monitoring/uss_qualifier/reports/report.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "documentation_url": {
+      "description": "URL at which this test case is described",
+      "type": "string"
+    },
+    "end_time": {
+      "description": "Time at which the test case completed or encountered an error",
+      "format": "date-time",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Name of this test case",
+      "type": "string"
+    },
+    "start_time": {
+      "description": "Time at which the test case started",
+      "format": "date-time",
+      "type": "string"
+    },
+    "steps": {
+      "description": "Reports for each of the test steps in this test case, in chronological order.",
+      "items": {
+        "$ref": "TestStepReport.json"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "documentation_url",
+    "name",
+    "start_time",
+    "steps"
+  ],
+  "type": "object"
+}

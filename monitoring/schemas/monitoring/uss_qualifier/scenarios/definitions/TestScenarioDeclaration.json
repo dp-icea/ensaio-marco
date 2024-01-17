@@ -1,0 +1,35 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/scenarios/definitions/TestScenarioDeclaration.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.uss_qualifier.scenarios.definitions.TestScenarioDeclaration, as defined in monitoring/uss_qualifier/scenarios/definitions.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "resources": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Mapping of the ID a resource in the test scenario -> the ID a resource is known by in the parent test suite.\n\nThe additional argument to concrete test scenario constructor <key> is supplied by the parent suite resource <value>.",
+      "properties": {
+        "$ref": {
+          "description": "Path to content that replaces the $ref",
+          "type": "string"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "scenario_type": {
+      "description": "Type of test scenario.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "scenario_type"
+  ],
+  "type": "object"
+}

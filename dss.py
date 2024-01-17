@@ -32,6 +32,7 @@ class Dss:
         self.vertices = response["vertices"]
 
     def make_eco_geometry(self):
+        self.get_area()
         result_list = []
         for latlong in self.vertices:
             lat = latlong["lat"]
@@ -45,6 +46,14 @@ class Dss:
             "type": "Polygon",
             "coordinates": [result_list]
         }
+
+        return self.geometry
+    
+    def get_start_time(self):
+        return self.start_time
+    
+    def get_end_time(self):
+        return self.end_time
     
 
     

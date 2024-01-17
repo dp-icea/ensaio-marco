@@ -1,0 +1,36 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/resources/definitions/ResourceDeclaration.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.uss_qualifier.resources.definitions.ResourceDeclaration, as defined in monitoring/uss_qualifier/resources/definitions.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "dependencies": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Mapping of dependency parameter (additional argument to concrete resource constructor) to `name` of resource to use",
+      "properties": {
+        "$ref": {
+          "description": "Path to content that replaces the $ref",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "resource_type": {
+      "description": "Type of resource, expressed as a Python class name qualified relative to this `resources` module",
+      "type": "string"
+    },
+    "specification": {
+      "description": "Specification of resource; format is the SpecificationType that corresponds to the `resource_type`",
+      "type": "object"
+    }
+  },
+  "required": [
+    "resource_type"
+  ],
+  "type": "object"
+}

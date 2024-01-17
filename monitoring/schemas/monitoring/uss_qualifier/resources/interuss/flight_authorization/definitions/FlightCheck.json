@@ -1,0 +1,65 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/resources/interuss/flight_authorization/definitions/FlightCheck.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.uss_qualifier.resources.interuss.flight_authorization.definitions.FlightCheck, as defined in monitoring/uss_qualifier/resources/interuss/flight_authorization/definitions.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "acceptance_expectation": {
+      "description": "Expected outcome when authorizing a flight as described.",
+      "enum": [
+        "MustBeRejected",
+        "MustBeAccepted",
+        "Irrelevant"
+      ],
+      "type": "string"
+    },
+    "conditions_expectation": {
+      "description": "Expected conditions/advisories produced when authorizing a flight as described.",
+      "enum": [
+        "Irrelevant",
+        "MustBePresent",
+        "MustBeAbsent"
+      ],
+      "type": "string"
+    },
+    "description": {
+      "description": "Human-readable test step description to aid in the debugging and traceability.",
+      "type": "string"
+    },
+    "execution_style": {
+      "description": "The manner in which the USS should be instructed to plan the flight.",
+      "enum": [
+        "Hypothetical",
+        "IfAllowed",
+        "InReality"
+      ],
+      "type": "string"
+    },
+    "flight_check_id": {
+      "description": "Unique (within table) test step/row identifier.",
+      "type": "string"
+    },
+    "flight_intent": {
+      "description": "ID of the flight intent, as a user would provide it to the USS, referring to one of the flight intents provided in a separate dictionary relating FlightIntentID to FlightInfoTemplate.",
+      "type": "string"
+    },
+    "requirement_ids": {
+      "description": "Jurisdictional identifiers of the requirements this test step is evaluating.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "description",
+    "execution_style",
+    "flight_check_id",
+    "flight_intent",
+    "requirement_ids"
+  ],
+  "type": "object"
+}

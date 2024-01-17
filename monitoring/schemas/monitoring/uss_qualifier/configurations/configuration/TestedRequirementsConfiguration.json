@@ -1,0 +1,49 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/configurations/configuration/TestedRequirementsConfiguration.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.uss_qualifier.configurations.configuration.TestedRequirementsConfiguration, as defined in monitoring/uss_qualifier/configurations/configuration.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "participant_requirements": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {
+        "$ref": {
+          "description": "Path to content that replaces the $ref",
+          "type": "string"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "report_name": {
+      "description": "Name of subfolder in output path to contain the rendered templated report",
+      "type": "string"
+    },
+    "requirement_collections": {
+      "additionalProperties": {
+        "$ref": "../../requirements/definitions/RequirementCollection.json"
+      },
+      "properties": {
+        "$ref": {
+          "description": "Path to content that replaces the $ref",
+          "type": "string"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "report_name"
+  ],
+  "type": "object"
+}

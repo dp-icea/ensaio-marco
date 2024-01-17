@@ -1,0 +1,67 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/suites/definitions/TestSuiteDefinition.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Schema for the definition of a test suite, analogous to the Python TestScenario subclass for scenarios\n\nmonitoring.uss_qualifier.suites.definitions.TestSuiteDefinition, as defined in monitoring/uss_qualifier/suites/definitions.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "actions": {
+      "description": "The actions to take when running the test suite.  Components will be executed in order.",
+      "items": {
+        "$ref": "TestSuiteActionDeclaration.json"
+      },
+      "type": "array"
+    },
+    "local_resources": {
+      "additionalProperties": {
+        "$ref": "../../resources/definitions/ResourceDeclaration.json"
+      },
+      "description": "Declarations of resources originating in this test suite.",
+      "properties": {
+        "$ref": {
+          "description": "Path to content that replaces the $ref",
+          "type": "string"
+        }
+      },
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "name": {
+      "description": "Name of the test suite",
+      "type": "string"
+    },
+    "participant_verifiable_capabilities": {
+      "description": "Definitions of capabilities verified by this test suite for individual participants.",
+      "items": {
+        "$ref": "../../reports/capability_definitions/ParticipantCapabilityDefinition.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "resources": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Enumeration of the resources used by this test suite",
+      "properties": {
+        "$ref": {
+          "description": "Path to content that replaces the $ref",
+          "type": "string"
+        }
+      },
+      "type": "object"
+    }
+  },
+  "required": [
+    "actions",
+    "name",
+    "resources"
+  ],
+  "type": "object"
+}

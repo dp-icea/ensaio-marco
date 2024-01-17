@@ -1,0 +1,23 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/configurations/configuration/USSQualifierConfiguration.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.uss_qualifier.configurations.configuration.USSQualifierConfiguration, as defined in monitoring/uss_qualifier/configurations/configuration.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "v1": {
+      "description": "Configuration in version 1 format",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "USSQualifierConfigurationV1.json"
+        }
+      ]
+    }
+  },
+  "type": "object"
+}
