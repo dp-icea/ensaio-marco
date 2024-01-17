@@ -6,8 +6,8 @@ import time
 class EcoUtm:
 
     def __init__(self) -> None:
-        self.eco_user_id = "1ee10fc1-dc5a-6df4-91c7-0242ac1c0005"
-        self.uas_id = "1ed0e6d9-e88e-6812-bd5f-0242ac12001c"
+        self.eco_user_id = "1ee10fc1-dc5a-6df4-91c7-0242ac1c0005" # User ID, cada provedor deve utilizar o seu
+        self.uas_id = "1ed0e6d9-e88e-6812-bd5f-0242ac12001c" # Aeronave ID, cada provedor deve utilizar o seu
 
 
     def area_solicitation(self, geometry, start_time, end_time):
@@ -21,13 +21,13 @@ class EcoUtm:
         url = "http://kong.icea.decea.mil.br:64235/eco-utm/v1/providers/auth"
         data = { 
             "data" : {
-                "provider_secret": "ZcRMOvPEbXoc0raV81veps7oqLlk5k8jDmdUk58uk5JbhfsCzZNs6bjM7Jj0g4wV",
-                "provider_id": "d9b6c0d9-2c49-4cc5-8d81-06ef797649be",
-                "user_id": self.eco_user_id
+                "provider_secret": "ZcRMOvPEbXoc0raV81veps7oqLlk5k8jDmdUk58uk5JbhfsCzZNs6bjM7Jj0g4wV", #Provider Secret, cada provedor deve utilizar o seu
+                "provider_id": "d9b6c0d9-2c49-4cc5-8d81-06ef797649be", #Provider ID, cada provedor deve utilizar o seu
+                "user_id": self.eco_user_id #User ID, o provedor deve previamente vincular o ID do usuário ao ID do provider
             }  
         }
         headers = {
-            "apikey": "ZcRMOvPEbXoc0raV81veps7oqLlk5k8jDmdUk58uk5JbhfsCzZNs6bjM7Jj0g4wV",
+            "apikey": "ZcRMOvPEbXoc0raV81veps7oqLlk5k8jDmdUk58uk5JbhfsCzZNs6bjM7Jj0g4wV", #Provider Secret, cada provedor deve utilizar o seu
             "Content-Type": "application/json"
         }
 
@@ -47,14 +47,14 @@ class EcoUtm:
                 "perfil": "1",
                 "datasHoras": "{" + f"\"date1\":\"{start_time[0:9]}\",\"date2\":\"{end_time[0:9]}\",\"hora1\":\"{start_time[11:15]}\",\"hora2\":\"{end_time[11:15]}\"" + "}",
                 "elevacoes": {
-                    "criarAreaMaximo": 10,
-                    "criarAreaMinimo": 0,
-                    "criarAreaMaximoFt": 32.8084,
-                    "criarAreaMinimoFt": 0,
+                    "criarAreaMaximo": 10, #Valor mockado
+                    "criarAreaMinimo": 0, #Valor mockado
+                    "criarAreaMaximoFt": 32.8084, #Valor mockado
+                    "criarAreaMinimoFt": 0, #Valor mockado
                     "criarAreaNome": "",
                     "criarAreaDescricao": "",
-                    "alturaEditavelMetros": "10",
-                    "alturaEditavelPes": 32.8084,
+                    "alturaEditavelMetros": "10", #Valor mockado
+                    "alturaEditavelPes": 32.8084, #Valor mockado
                     "dataInicio": f"{start_time[0:9]}",
                     "dataTermino": f"{end_time[0:9]}",
                     "horaInicio": f"{start_time[11:15]}",
@@ -62,18 +62,18 @@ class EcoUtm:
                     "update": []
                 },
                 "raio": 0,
-                "altura": "10",
+                "altura": "10", #Valor mockado
                 "formato": "poligono",
                 "contextoId": 1,
                 "pontoDecolagem": {
                     "latLng": {
-                        "lat": geometry["coordinates"][0][0][0],
-                        "lng": geometry["coordinates"][0][0][1],
+                        "lat": geometry["coordinates"][0][0][0], #Lat da primeira posição
+                        "lng": geometry["coordinates"][0][0][1], #Long da primeira posição
                         "valido": True
                     },
                     "unidade": "gms",
-                    "elevationM": 10,
-                    "elevationFt": 32.8084,
+                    "elevationM": 10, #Valor mockado
+                    "elevationFt": 32.8084, #Valor mockado
                     "valido": True
                 }
             },

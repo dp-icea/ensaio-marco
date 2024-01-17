@@ -1,0 +1,24 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/reports/validation/definitions/ValidationCriterion.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Wrapper for all the potential types of validation criteria.\n\nmonitoring.uss_qualifier.reports.validation.definitions.ValidationCriterion, as defined in monitoring/uss_qualifier/reports/validation/definitions.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "applicability": {
+      "$ref": "ValidationCriterionApplicability.json",
+      "description": "Definition of the test report elements to which the `pass_condition` is applicable."
+    },
+    "pass_condition": {
+      "$ref": "PassCondition.json",
+      "description": "Condition that must be met by the applicable test report element(s) in order to pass validation."
+    }
+  },
+  "required": [
+    "applicability",
+    "pass_condition"
+  ],
+  "type": "object"
+}

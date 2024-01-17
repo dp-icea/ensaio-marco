@@ -1,0 +1,72 @@
+{
+  "$id": "https://github.com/interuss/monitoring/blob/main/schemas/monitoring/uss_qualifier/configurations/configuration/ArtifactsConfiguration.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "monitoring.uss_qualifier.configurations.configuration.ArtifactsConfiguration, as defined in monitoring/uss_qualifier/configurations/configuration.py",
+  "properties": {
+    "$ref": {
+      "description": "Path to content that replaces the $ref",
+      "type": "string"
+    },
+    "output_path": {
+      "description": "Path to folder where artifacts should be written.  Note that this value may be overridden at runtime without affecting the test baseline.",
+      "type": "string"
+    },
+    "raw_report": {
+      "description": "Configuration for raw report generation",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "RawReportConfiguration.json"
+        }
+      ]
+    },
+    "report_html": {
+      "description": "If specified, configuration describing how an HTML version of the raw report should be generated",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "ReportHTMLConfiguration.json"
+        }
+      ]
+    },
+    "sequence_view": {
+      "description": "If specified, configuration describing a desired report describing the sequence of events that occurred during the test",
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "SequenceViewConfiguration.json"
+        }
+      ]
+    },
+    "templated_reports": {
+      "description": "List of report templates to be rendered",
+      "items": {
+        "$ref": "TemplatedReportConfiguration.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "tested_requirements": {
+      "description": "If specified, list of configurations describing desired reports summarizing tested requirements for each participant",
+      "items": {
+        "$ref": "TestedRequirementsConfiguration.json"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "output_path"
+  ],
+  "type": "object"
+}
