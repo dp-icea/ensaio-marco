@@ -6,12 +6,20 @@ import time
 class EcoUtm:
 
     def __init__(self) -> None:
-        self.eco_user_id = "1ee10fc1-dc5a-6df4-91c7-0242ac1c0005" # User ID, cada provedor deve utilizar o seu
-        self.uas_id = "1ed0e6d9-e88e-6812-bd5f-0242ac12001c" # Aeronave ID, cada provedor deve utilizar o seu
+        
+        # User provider ID, cada provedor deve utilizar o seu
+        self.eco_user_id = "1EE95CF9-4B6A-6078-BB49-0242AC180010" 
+        
+        # Aeronave ID, cada provedor deve utilizar o seu
+        self.uas_id = "1EEB631D-E248-6180-9C6A-0242AC180007" 
+        
+        #Provider Secret, cada provedor deve utilizar o seu
+        self.provider_secret = "yNmMlRyyLYBZQCly" 
 
+        #Provider ID, cada provedor deve utilizar o seu
+        self.provider_id = "1EEB563F-8458-69DE-B211-0242AC180007" 
 
     def area_solicitation(self, geometry, start_time, end_time):
-        self.auth_eco_utm()
         self.create_asa_id(geometry, start_time, end_time)
         self.create_solicitation(geometry, start_time, end_time)
         
@@ -21,19 +29,19 @@ class EcoUtm:
         url = "http://kong.icea.decea.mil.br:64235/eco-utm/v1/providers/auth"
         data = { 
             "data" : {
-                "provider_secret": "ZcRMOvPEbXoc0raV81veps7oqLlk5k8jDmdUk58uk5JbhfsCzZNs6bjM7Jj0g4wV", #Provider Secret, cada provedor deve utilizar o seu
-                "provider_id": "d9b6c0d9-2c49-4cc5-8d81-06ef797649be", #Provider ID, cada provedor deve utilizar o seu
+                "provider_secret": self.provider_secret, 
+                "provider_id": self.provider_id, 
                 "user_id": self.eco_user_id #User ID, o provedor deve previamente vincular o ID do usuário ao ID do provider
             }  
         }
         headers = {
-            "apikey": "ZcRMOvPEbXoc0raV81veps7oqLlk5k8jDmdUk58uk5JbhfsCzZNs6bjM7Jj0g4wV", #Provider Secret, cada provedor deve utilizar o seu
+            "apikey": self.provider_secret, #Provider Secret, cada provedor deve utilizar o seu
             "Content-Type": "application/json"
         }
 
         response = requests.post(url, json = data, headers=headers).json()
 
-
+        print(response)
         self.auth_token = response["token"]
         self.pilot_id = response["pilot"]["operational_id"]
 
