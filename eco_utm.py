@@ -46,7 +46,7 @@ class EcoUtm:
         self.pilot_id = response["pilot"]["operational_id"]
 
     def create_asa_id(self, geometry, start_time, end_time):
-        self.asa_id = str(uuid.uuid4())
+        self.asa_id = str(uuid.uuid4()) #O UUID do da area do ASA é definido pelo requisitante
         url = f"http://kong.icea.decea.mil.br:64236/api/polygon/{self.asa_id}/{self.eco_user_id}"
         data = {
             "type": "Feature",
