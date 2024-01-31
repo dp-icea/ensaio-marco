@@ -15,6 +15,8 @@ def main():
     dss = Dss()
     
     mock_geometry_data = dss.make_eco_geometry(ecoutm.uas_id, ecoutm.pilot_id, ecoutm.eco_user_id)
+    print(mock_geometry_data)
+    return
     mock_start_time = dss.get_start_time()
     mock_end_time = dss.get_end_time()
 

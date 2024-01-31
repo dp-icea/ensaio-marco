@@ -34,6 +34,7 @@ class Dss:
     def make_eco_geometry(self, uas_id, pilot_id, eco_id):
         self.get_area(uas_id, pilot_id, eco_id)
         result_list = []
+        print(self.vertices)
         for latlong in self.vertices:
             lat = latlong["lat"]
             long = latlong["lng"]

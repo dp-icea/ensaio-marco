@@ -40,8 +40,7 @@ class EcoUtm:
         }
 
         response = requests.post(url, json = data, headers=headers).json()
-
-        print(response)
+        
         self.auth_token = response["token"]
         self.pilot_id = response["pilot"]["operational_id"]
 
