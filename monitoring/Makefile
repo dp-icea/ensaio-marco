@@ -116,4 +116,3 @@ presubmit: hygiene-tests monitoring-tests
 run-decea-containers:
 	build/dev/run_locally.sh up -d
 	build/dev/wait_for_local_infra.sh
-	monitoring/mock_uss/start_locally_test_decea.sh
