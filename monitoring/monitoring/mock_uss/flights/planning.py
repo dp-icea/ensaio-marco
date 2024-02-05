@@ -7,13 +7,13 @@ from monitoring.mock_uss.flights.database import FlightRecord, db, DEADLOCK_TIME
 
 def lock_flight(flight_id: str, log: Callable[[str], None]) -> FlightRecord:
     # If this is a change to an existing flight, acquire lock to that flight
-    log(f"Acquiring lock for flight {flight_id}")
     deadline = datetime.utcnow() + DEADLOCK_TIMEOUT
     while True:
         with db as tx:
             if flight_id in tx.flights:
                 # This is an existing flight being modified
                 existing_flight = tx.flights[flight_id]
+                return existing_flight
                 if existing_flight and not existing_flight.locked:
                     log("Existing flight locked for update")
                     existing_flight.locked = True
